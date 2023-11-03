@@ -2,16 +2,15 @@
 {%block content%}
     <div class="container">
         <div class="jumptron text-center">
-            <h1>Welcome {{user.first_name}} {{user.last_name}}</h1>
+            <h1>Welcome {{user.first_name}} {{user.last_name}} </h1>
         </div>
         <div class="jumbotron text-center">
             {% if task %}
-                    <h1>Edit Task</h1>
-            {% else %}
-                    <h1>Edit Task</h>
-            {% endif %}
-
-        <form action="/editProject" method="post" novalidate>
+                <h1>Edit Project</h1>
+            {%else%}
+                <h1>Edit Project</h1>
+            {%endif%}
+        <form action="/newProject" method="post" novalidate>
             {{form.hidden_tag()}}
             {% if project %}
                 <input type="hidden" name="hiddenProjectId" value="{{project.project_id}}">
@@ -52,7 +51,7 @@
                 </div>
                 <p class="lead"></p>
                 <p>
-                    {{form.submit3(class="btn btn-lg btn-success btn-block")}}
+                    {{form.submit2(class="btn btn-lg btn-success btn-block")}}
                     <a href="/userHome" class="btn btn-lg btn-warning btn-block">Cancel</a>
                 </p>
             </form>
